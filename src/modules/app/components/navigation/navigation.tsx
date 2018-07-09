@@ -1,14 +1,17 @@
 import * as React from "react";
 import * as css from "./theme/navigation.css";
+import * as iconCss from "./theme/icon.child.css";
 import * as messageCardCss from "./theme/messeger-card.child.css";
+import * as hamburgerIcon from "../../../../assets/icons/hamburger-menu.svg";
 import { Component } from "react";
 import { Messenger } from "../../../../models/Messenger";
 import { MESSENGERS } from "../../../../fixtures/messenger";
 import { MessengerCard } from "../messenger-card/messenger-card";
+import { Icon } from "../../../ui-kit/components/icon/icon";
 
 export type TNavigationProps = {
   selectedIm: Messenger;
-  onSelect?: (im: Messenger) => void;
+  onSelect: (im: Messenger) => void;
 };
 
 export class Navigation extends Component<TNavigationProps> {
@@ -17,6 +20,9 @@ export class Navigation extends Component<TNavigationProps> {
 
     return (
       <div className={css.container}>
+        <div className={css.hamburger}>
+          <Icon theme={iconCss} source={hamburgerIcon} />
+        </div>
         {MESSENGERS.map(type => (
           <MessengerCard
             theme={messageCardCss}

@@ -3,7 +3,7 @@ import { Reducer } from "redux";
 import { Messenger, TMessenger } from "../../models/Messenger";
 
 export const changeImReducer: Reducer<Messenger, TChangeIM> = (
-  state = Messenger.Telegram,
+  state = Messenger.Whatsapp,
   action
 ) => {
   switch (action.type) {
