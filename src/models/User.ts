@@ -1,4 +1,9 @@
+import { TMessage } from "./Message";
+
 export type TUser = {
   id: string;
-  isOnline: boolean;
+  name: string;
+  avatar: string;
+  isOnline?: boolean;
+  lastMessage?: TMessage;
 };

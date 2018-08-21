@@ -6,7 +6,7 @@ import { themr } from "react-css-themr";
 import { ObjectOptional } from "../../../../utils/object-optional";
 
 type TRawIconProps = {
-  theme: MakeTheme<"container">;
+  theme: MakeTheme<"container" | "content">;
   source: string;
   alt?: string;
 };
@@ -17,7 +17,7 @@ class RawIcon extends Component<TRawIconProps> {
 
     return (
       <div className={theme.container}>
-        <img src={source} alt={alt} />
+        <img src={source} alt={alt} className={theme.content} />
       </div>
     );
   }

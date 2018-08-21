@@ -1,0 +1,41 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 230px;
+    background-color: #222830;
+    color: #909497;
+    cursor: default;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    margin: 22px 22px 20px 31px;
+    font-size: 18px;
+}
+
+.title {
+    margin-right: auto;
+    color: #fff;
+}
+
+.menuItem {
+    margin: 0 20px;
+    padding: 0 13px 0 10px;
+    height: 36px;
+    align-items: center;
+    display: flex;
+}
+
+.menuItem__active {
+    border-radius: 5px;
+    background-color: #343C45;
+}
+
+.count {
+    font-size: 11px;
+}
+
+.cathegoryTitle {
+    margin-right: auto;
+}

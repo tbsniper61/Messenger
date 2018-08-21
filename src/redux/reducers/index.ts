@@ -3,9 +3,11 @@ import { TAppState } from "../state";
 import { TAction } from "../actions";
 import { changeImReducer } from "./im";
 import { changeUserReducer } from "./user";
+import { changeInboxMenuReducer } from "./inbox";
 
 export const reducerMapObj: ReducersMapObject<TAppState, TAction> = {
   selectedMessenger: changeImReducer,
+  selectedInboxMenu: changeInboxMenuReducer,
   selectedUser: changeUserReducer
 };
 

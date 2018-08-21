@@ -4,16 +4,19 @@ import { Provider } from "react-redux";
 import { Component } from "react";
 import { store } from "../../../../redux/state";
 import { NavigationContainer } from "../../containers/navigation/navigation.container";
-// import { Navigation } from "../navigation/navigation";
-// import { Messenger } from "../../../../models/Messenger";
+import { Messages } from "../messages/messages";
+import { InboxContainer } from "../../containers/inbox/inbox.container";
+import { UsersContainer } from "../../containers/users/users.container";
 
 export class App extends Component {
   render() {
     return (
       <Provider store={store}>
         <div className={css.container}>
-          {/*<Navigation selectedIm={Messenger.Whatsapp} />*/}
           <NavigationContainer />
+          <InboxContainer />
+          <UsersContainer />
+          <Messages />
         </div>
       </Provider>
     );
