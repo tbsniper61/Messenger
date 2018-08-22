@@ -5,6 +5,7 @@
     background-color: #222830;
     color: #909497;
     cursor: default;
+    border-right: 1px solid black;
 }
 
 .header {

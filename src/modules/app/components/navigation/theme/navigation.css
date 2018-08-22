@@ -7,7 +7,12 @@
     padding: 10px 0 10px 10px;
 }
 
-.hamburger {
-    padding-right: 10px;
-    margin: 20px auto 40px auto;
+.topPlaceholder {
+    height: 105px;
+    border-right: 1px solid black;
+}
+
+.botPlaceholder {
+    border-right: 1px solid black;
+    height: 100%;
 }

@@ -3,10 +3,7 @@ import * as cn from "classnames";
 import * as css from "./theme/inbox.css";
 import * as iconCss from "./theme/icon.child.css";
 import * as addIcon from "../../../../assets/icons/add.svg";
-import { themr } from "react-css-themr";
-import { Component, ComponentClass, Fragment } from "react";
-import { MakeTheme } from "../../../../utils/make-theme";
-import { ObjectOptional } from "../../../../utils/object-optional";
+import { Component, Fragment } from "react";
 import { Icon } from "../../../ui-kit/components/icon/icon";
 import { Hr } from "../../../ui-kit/components/hr/hr";
 import {
@@ -17,37 +14,28 @@ import {
   TCounts
 } from "../../../../models/Inbox";
 
-export type TRawInboxProps = {
-  theme: MakeTheme<
-    | "container"
-    | "header"
-    | "title"
-    | "menuItem"
-    | "count"
-    | "cathegoryTitle"
-    | "menuItem__active"
-  >;
+export type TInboxProps = {
   selectedItem: TInboxMenuItems;
   counts: TCounts;
   onSelect: (selectedItem: TInboxMenuItems) => void;
 };
 
-export class RawInbox extends Component<TRawInboxProps> {
+export class Inbox extends Component<TInboxProps> {
   render() {
-    const { theme, selectedItem, counts } = this.props;
+    const { selectedItem, counts } = this.props;
 
     return (
-      <div className={theme.container}>
-        <div className={theme.header}>
-          <div className={theme.title}>Inbox</div>
+      <div className={css.container}>
+        <div className={css.header}>
+          <div className={css.title}>Inbox</div>
           <Icon source={addIcon} theme={iconCss} />
         </div>
 
         {PRIMARY_MENU_ITEMS.map(el => {
           const shouldRenderHr = el === PrimaryMenuItem.Teams;
 
-          const itemTheme = cn(theme.menuItem, {
-            [theme.menuItem__active as string]: el === selectedItem
+          const itemTheme = cn(css.menuItem, {
+            [css.menuItem__active as string]: el === selectedItem
           });
 
           return (
@@ -55,8 +43,8 @@ export class RawInbox extends Component<TRawInboxProps> {
               {shouldRenderHr && <Hr />}
 
               <div className={itemTheme} onClick={this.handleItemSelect(el)}>
-                <div className={theme.cathegoryTitle}>{el}</div>
-                <div className={theme.count}>{counts[el]}</div>
+                <div className={css.cathegoryTitle}>{el}</div>
+                <div className={css.count}>{counts[el]}</div>
               </div>
             </Fragment>
           );
@@ -65,8 +53,8 @@ export class RawInbox extends Component<TRawInboxProps> {
         <Hr />
 
         {SETTINGS_MENU_ITEMS.map(el => {
-          const itemTheme = cn(theme.menuItem, {
-            [theme.menuItem__active as string]: el === selectedItem
+          const itemTheme = cn(css.menuItem, {
+            [css.menuItem__active as string]: el === selectedItem
           });
 
           return (
@@ -75,7 +63,7 @@ export class RawInbox extends Component<TRawInboxProps> {
               onClick={this.handleItemSelect(el)}
               key={el}
             >
-              <div className={theme.cathegoryTitle}>{el}</div>
+              <div className={css.cathegoryTitle}>{el}</div>
             </div>
           );
         })}
@@ -85,13 +73,3 @@ export class RawInbox extends Component<TRawInboxProps> {
 
   handleItemSelect = (item: TInboxMenuItems) => () => this.props.onSelect(item);
 }
-
-const defaultTheme = {
-  ...css
-};
-
-export type TInboxProps = ObjectOptional<TRawInboxProps, "theme">;
-
-export const Inbox: ComponentClass<TInboxProps> = themr("Inbox", defaultTheme)(
-  RawInbox
-);

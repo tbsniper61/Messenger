@@ -37,7 +37,7 @@ export const USERS: TUser[] = [
     isOnline: true,
     lastMessage: {
       id: "msg-3",
-      content: "Thanks again you have been ...",
+      content: "Thanks again you have been...",
       date: new Date("08.10.2018")
     }
   }

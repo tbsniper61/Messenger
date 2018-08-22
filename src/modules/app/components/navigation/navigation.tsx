@@ -20,7 +20,7 @@ export class Navigation extends Component<TNavigationProps> {
 
     return (
       <div className={css.container}>
-        <div className={css.hamburger}>
+        <div className={css.topPlaceholder}>
           <Icon theme={iconCss} source={hamburgerIcon} />
         </div>
         {MESSENGERS.map(type => (
@@ -32,6 +32,7 @@ export class Navigation extends Component<TNavigationProps> {
             key={type}
           />
         ))}
+        <div className={css.botPlaceholder} />
       </div>
     );
   }

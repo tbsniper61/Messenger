@@ -1,5 +1,3 @@
-// tslint:disable-next-line
-// import { ComponentClass, StatelessComponent } from "react";
 import { TAppState } from "../../../../redux/state";
 import { createSelector } from "reselect";
 import {
