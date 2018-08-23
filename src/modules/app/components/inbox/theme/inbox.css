@@ -26,6 +26,7 @@
     height: 36px;
     align-items: center;
     display: flex;
+    font-size: 14px;
 }
 
 .menuItem__active {

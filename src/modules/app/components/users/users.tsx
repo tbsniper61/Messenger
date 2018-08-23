@@ -1,6 +1,7 @@
 import * as React from "react";
 import * as css from "./theme/users.css";
 import * as hrCss from "./theme/hr.child.css";
+import * as searchCss from "./theme/search.child.css";
 import { Component, Fragment } from "react";
 import { Search } from "../../../ui-kit/components/search/search";
 import { UserCard } from "../user-card/user-card";
@@ -35,8 +36,9 @@ export class Users extends Component<TUsersProps, TUsersState> {
 
     return (
       <div className={css.container}>
-        <Search onChange={this.handleInputChange} />
-        <Hr />
+        <div className={css.header}>
+          <Search onChange={this.handleInputChange} theme={searchCss} />
+        </div>
 
         {filtredData.map(el => {
           const isSelected = selectedUserId === el.id;
