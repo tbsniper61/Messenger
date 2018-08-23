@@ -4,7 +4,7 @@ import * as format from "date-fns/format";
 import * as css from "./theme/user-card.css";
 import * as iconCss from "./theme/icon.child.css";
 import * as dotsCss from "./theme/dots.child.css";
-import * as dots from "../../../../assets/icons/more.svg";
+import * as dots from "../../../../assets/icons/additional.svg";
 import { themr } from "react-css-themr";
 import { Component, ComponentClass } from "react";
 import { MakeTheme } from "../../../../utils/make-theme";

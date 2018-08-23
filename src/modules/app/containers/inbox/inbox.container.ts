@@ -19,7 +19,7 @@ const mapStateToProps = createSelector(endomorphism, state => ({
 
 const mapDispatchToProps = (dispatch: Dispatch<TChangeInboxMenu>) => ({
   onSelect: (selectedItem: TInboxMenuItems) =>
-    dispatch(changeInboxMenuAC(selectedItem))
+    dispatch(changeInboxMenuAC(selectedItem)(dispatch))
 });
 
 export const InboxContainer = connect(

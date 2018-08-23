@@ -1,4 +1,8 @@
 import { Messenger, TMessenger } from "../../models/Messenger";
+import { Dispatch } from "redux";
+import { TAction } from "./index";
+import { changeInboxMenuAC } from "./inbox";
+import { PrimaryMenuItem } from "../../models/Inbox";
 
 export const CHANGE_IM = "CHANGE_IM";
 export const IM_LOADED = "IM_LOADED";
@@ -10,14 +14,20 @@ export type TChangeIM = {
   };
 };
 
-export type TChangeImAC = (im: Messenger) => TChangeIM;
+export type TChangeImAC = (
+  im: Messenger
+) => (dispatch: Dispatch<TAction>) => TChangeIM;
 
-export const changeImAC: TChangeImAC = im => ({
-  type: CHANGE_IM,
-  payload: {
-    im
-  }
-});
+export const changeImAC: TChangeImAC = im => dispatch => {
+  dispatch(changeInboxMenuAC(PrimaryMenuItem.All)(dispatch));
+
+  return {
+    type: CHANGE_IM,
+    payload: {
+      im
+    }
+  };
+};
 
 //
 export type TImLoaded = {

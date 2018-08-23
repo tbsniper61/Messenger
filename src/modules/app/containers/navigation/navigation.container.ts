@@ -1,4 +1,3 @@
-// import { ComponentClass, StatelessComponent } from "react";
 import { createSelector } from "reselect";
 import { TAppState } from "../../../../redux/state";
 import { Dispatch } from "redux";
@@ -13,7 +12,7 @@ const mapStateToProps = createSelector(endomorphism, state => ({
 }));
 
 const mapDispatchToProps = (dispatch: Dispatch<TChangeIM>) => ({
-  onSelect: (im: Messenger) => dispatch(changeImAC(im))
+  onSelect: (im: Messenger) => dispatch(changeImAC(im)(dispatch))
 });
 
 export const NavigationContainer = connect(
