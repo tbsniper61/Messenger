@@ -20,6 +20,7 @@ export const USERS: TUser[] = [
     location: "Cape Town, RSA",
     lastMessage: {
       id: "msg-1",
+      userId: "asd1",
       content: "Thanks again you have been...",
       date: new Date("08.01.2018")
     }
@@ -36,6 +37,7 @@ export const USERS: TUser[] = [
     location: "Cape Town, RSA",
     lastMessage: {
       id: "msg-2",
+      userId: "asd2",
       content: "My selfie game is lacking can...",
       date: new Date("08.03.2018")
     }
@@ -52,6 +54,7 @@ export const USERS: TUser[] = [
     location: "Cape Town, RSA",
     lastMessage: {
       id: "msg-3",
+      userId: "asd3",
       content: "Thanks again you have been...",
       date: new Date("08.10.2018")
     }

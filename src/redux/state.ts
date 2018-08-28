@@ -8,11 +8,7 @@ import { TInboxMenuItems } from "../models/Inbox";
 
 export type TAppState = {
   selectedMessenger: Messenger;
-  // users: {
-  // 	byMessengerId: {
-  // 		[key in Messenger]: TUser[];
-  // 	}
-  // };
+  currentUser: TUser;
   selectedInboxMenu: TInboxMenuItems;
   selectedUser: Option<TUser>;
   // messages: {
@@ -20,6 +16,11 @@ export type TAppState = {
   // 		[id: string]: TMessage[];
   // 	}
   // }
+  // users: {
+  // 	byMessengerId: {
+  // 		[key in Messenger]: TUser[];
+  // 	}
+  // };
 };
 
 export const store: Store<TAppState, TAction> = createStore(rootReducer);
