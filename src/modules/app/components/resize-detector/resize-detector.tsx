@@ -6,10 +6,6 @@ export type TResizeDetectorProps = {
 };
 
 export class ResizeDetector extends Component<TResizeDetectorProps> {
-  state = {
-    windowWidth: 0
-  };
-
   componentDidMount() {
     this.updateWindowWidth();
     window.addEventListener("resize", this.updateWindowWidth);
@@ -21,8 +17,6 @@ export class ResizeDetector extends Component<TResizeDetectorProps> {
 
   updateWindowWidth() {
     const { onWindowResize } = this.props;
-
-    console.log("onWindowResize", onWindowResize);
 
     onWindowResize(window.innerWidth < 1513);
   }
