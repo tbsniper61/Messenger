@@ -4,11 +4,13 @@ import { TAction } from "../actions";
 import { changeImReducer } from "./im";
 import { changeUserReducer } from "./user";
 import { changeInboxMenuReducer } from "./inbox";
+import { resizeWindowReducer } from "./resize-detector";
 
 export const reducerMapObj: ReducersMapObject<TAppState, TAction> = {
   selectedMessenger: changeImReducer,
   selectedInboxMenu: changeInboxMenuReducer,
   selectedUser: changeUserReducer,
+  isSmallScreen: resizeWindowReducer,
   currentUser: () => ({
     id: "currentUser",
     name: "curr User",

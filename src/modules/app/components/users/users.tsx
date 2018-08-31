@@ -36,25 +36,27 @@ export class Users extends Component<TUsersProps, TUsersState> {
 
     return (
       <div className={css.container}>
-        <div className={css.header}>
-          <Search onChange={this.handleInputChange} theme={searchCss} />
+        <div className={css.flexContainer}>
+          <div className={css.header}>
+            <Search onChange={this.handleInputChange} theme={searchCss} />
+          </div>
+
+          {filtredData.map(el => {
+            const isSelected = selectedUserId === el.id;
+
+            return (
+              <Fragment key={el.id}>
+                <UserCard
+                  user={el}
+                  isSelected={isSelected}
+                  onSelect={this.handleSelect}
+                />
+
+                <Hr theme={hrCss} />
+              </Fragment>
+            );
+          })}
         </div>
-
-        {filtredData.map(el => {
-          const isSelected = selectedUserId === el.id;
-
-          return (
-            <Fragment key={el.id}>
-              <UserCard
-                user={el}
-                isSelected={isSelected}
-                onSelect={this.handleSelect}
-              />
-
-              <Hr theme={hrCss} />
-            </Fragment>
-          );
-        })}
       </div>
     );
   }

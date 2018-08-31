@@ -14,7 +14,8 @@ const endomorphism = (state: TAppState) => state;
 
 const mapStateToProps = createSelector(endomorphism, state => ({
   selectedItem: state.selectedInboxMenu,
-  counts: COUNTS // TODO: add middleware getCountsByIM
+  counts: COUNTS, // TODO: add middleware getCountsByIM
+  isHidden: state.isSmallScreen
 }));
 
 const mapDispatchToProps = (dispatch: Dispatch<TChangeInboxMenu>) => ({

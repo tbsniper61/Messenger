@@ -1,11 +1,17 @@
 import * as React from "react";
 import * as css from "./theme/messages.css";
 import * as favoriteIcon from "./../../../../assets/icons/favorite-icon.svg";
-// import * as sendIcon from "./../../../../assets/icons/send-icon.png";
-// import * as attachIcon from "./../../../../assets/icons/attach-icon.png";
-// import * as emojiIcon from "./../../../../assets/icons/emojis-icon.png";
-// import * as callIcon from "./../../../../assets/icons/call-icon.png";
-// import * as videoIcon from "./../../../../assets/icons/video-icon.png";
+const sendIcon = require("./../../../../assets/icons/send-icon.png");
+const attachIcon = require("./../../../../assets/icons/attach-icon.png");
+const emojiIcon = require("./../../../../assets/icons/emojis-icon.png");
+const callIcon = require("./../../../../assets/icons/call-icon.png");
+const videoIcon = require("./../../../../assets/icons/video-icon.png");
+import * as favoriteCss from "./theme/favorite.child.css";
+import * as sendCss from "./theme/send.child.css";
+import * as attachCss from "./theme/attach.child.css";
+import * as emojiCss from "./theme/emoji.child.css";
+import * as callCss from "./theme/call.child.css";
+import * as videoCss from "./theme/video.child.css";
 import { themr } from "react-css-themr";
 import { Component, ComponentClass } from "react";
 import { MakeTheme } from "../../../../utils/make-theme";
@@ -30,31 +36,33 @@ export class RawMessages extends Component<TRawMessagesProps> {
 
     const username = selectedUser.map(el => el.name).getOrElse("");
 
+    if (selectedUser.isNone()) {
+      return null;
+    }
+
     return (
       <div className={theme.container}>
-        <div className={css.header}>
-          <div className={css.userInfo}>
-            <div className={css.username}>{username}</div>
-            <div className={css.isTyping}>is typing...</div>
+        <div className={css.flexContainer}>
+          <div className={css.header}>
+            <div className={css.userInfo}>
+              <div className={css.username}>{username}</div>
+              <div className={css.isTyping}>is typing...</div>
+            </div>
+            <Icon source={favoriteIcon} theme={favoriteCss} />
+            <Icon source={callIcon} theme={callCss} />
+            <Icon source={videoIcon} theme={videoCss} />
           </div>
-          <div className={css.headerIcon}>
-            <Icon source={favoriteIcon} />
+          <div className={css.content}>{messages.map(this.renderMessage)}</div>
+          <div className={css.footer}>
+            <Icon source={attachIcon} theme={attachCss} />
+            <input
+              type="text"
+              placeholder={"Type your message..."}
+              className={css.textInput}
+            />
+            <Icon source={emojiIcon} theme={emojiCss} />
+            <Icon source={sendIcon} theme={sendCss} />
           </div>
-          <div className={css.headerIcon}>{/*<Icon source={callIcon} />*/}</div>
-          <div className={css.headerIcon}>
-            {/*<Icon source={videoIcon} />*/}
-          </div>
-        </div>
-        <div className={css.content}>{messages.map(this.renderMessage)}</div>
-        <div className={css.footer}>
-          <div className={css.attach}>attach</div>
-          <input
-            type="text"
-            placeholder={"Type your message..."}
-            className={css.textInput}
-          />
-          <div className={css.emoji}>emoji</div>
-          <div className={css.send}>{/*<Icon source={sendIcon} />*/}</div>
         </div>
       </div>
     );

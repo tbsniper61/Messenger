@@ -8,6 +8,14 @@
     border-right: 1px solid black;
 }
 
+@media screen and (max-width: 1512px) {
+    .container {
+        height: 100%;
+        left: 81px;
+        position: absolute;
+    }
+}
+
 .header {
     display: flex;
     align-items: center;

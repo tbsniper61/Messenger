@@ -6,7 +6,8 @@ import { UserInfo } from "../../components/user-info/user-info";
 const endomorphism = (state: TAppState) => state;
 
 const mapStateToProps = createSelector(endomorphism, state => ({
-  user: state.selectedUser
+  user: state.selectedUser,
+  selectedMessenger: state.selectedMessenger
 }));
 
-export const UserInfoContainer = connect(mapStateToProps)(UserInfo);
+export const UserInfoContainer = connect(mapStateToProps)(UserInfo as any);

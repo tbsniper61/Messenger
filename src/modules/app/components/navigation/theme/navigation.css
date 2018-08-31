@@ -1,9 +1,15 @@
 .container{
+    min-width: 80px;
+    max-width: 80px;
+    height: 100%;
+    background-color: #1D232A;
+
+}
+
+.flexContainer {
+    height: 100%;
     display: flex;
     flex-direction: column;
-    width: 80px;
-    height: calc(100% - 20px);
-    background-color: #1D232A;
     padding: 10px 0 10px 10px;
 }
 

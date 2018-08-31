@@ -17,12 +17,17 @@ import {
 export type TInboxProps = {
   selectedItem: TInboxMenuItems;
   counts: TCounts;
+  isHidden: boolean;
   onSelect: (selectedItem: TInboxMenuItems) => void;
 };
 
 export class Inbox extends Component<TInboxProps> {
   render() {
-    const { selectedItem, counts } = this.props;
+    const { selectedItem, counts, isHidden } = this.props;
+
+    if (isHidden) {
+      return null;
+    }
 
     return (
       <div className={css.container}>
