@@ -13,17 +13,22 @@ export type TNavigationProps = {
   selectedIm: Messenger;
   isHamburgerHidden: boolean;
   onSelect: (im: Messenger) => void;
+  onMenuClick: () => void;
 };
 
 export class Navigation extends Component<TNavigationProps> {
   render() {
-    const { selectedIm, onSelect, isHamburgerHidden } = this.props;
+    const { selectedIm, onSelect, isHamburgerHidden, onMenuClick } = this.props;
 
     return (
       <div className={css.container}>
         <div className={css.topPlaceholder}>
           {!isHamburgerHidden && (
-            <Icon theme={iconCss} source={hamburgerIcon} />
+            <Icon
+              theme={iconCss}
+              source={hamburgerIcon}
+              onClick={onMenuClick}
+            />
           )}
         </div>
         {MESSENGERS.map(type => (

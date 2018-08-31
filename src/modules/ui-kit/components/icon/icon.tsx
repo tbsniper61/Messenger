@@ -9,14 +9,15 @@ type TRawIconProps = {
   theme: MakeTheme<"container" | "content">;
   source: string;
   alt?: string;
+  onClick?: () => void;
 };
 
 class RawIcon extends Component<TRawIconProps> {
   render() {
-    const { theme, source, alt } = this.props;
+    const { theme, source, alt, onClick } = this.props;
 
     return (
-      <div className={theme.container}>
+      <div className={theme.container} onClick={onClick}>
         <img src={source} alt={alt} className={theme.content} />
       </div>
     );

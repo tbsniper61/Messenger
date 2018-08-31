@@ -12,7 +12,9 @@ const endomorphism = (state: TAppState) => state;
 
 const mapStateToProps = createSelector(endomorphism, state => ({
   selectedUser: state.selectedUser,
-  data: USERS
+  data: USERS,
+  isSmallScreen: state.isSmallScreen,
+  isMenuHidden: state.isMenuHidden
 }));
 
 const mapDispatchToProps = (dispatch: Dispatch<TChangeUser>) => ({

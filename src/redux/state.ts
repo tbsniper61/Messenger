@@ -12,6 +12,7 @@ export type TAppState = {
   selectedInboxMenu: TInboxMenuItems;
   selectedUser: Option<TUser>;
   isSmallScreen: boolean;
+  isMenuHidden: boolean;
   // messages: {
   // 	byUserId: {
   // 		[id: string]: TMessage[];

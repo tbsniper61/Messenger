@@ -1,5 +1,6 @@
 .container {
     min-width: 540px;
+    max-width: 950px;
     height: 100%;
     border-right: 1px solid #DBDDDF;
 }

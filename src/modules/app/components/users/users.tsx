@@ -12,6 +12,8 @@ import { Hr } from "../../../ui-kit/components/hr/hr";
 export type TUsersProps = {
   data: TUser[];
   selectedUser: Option<TUser>;
+  isSmallScreen: boolean;
+  isMenuHidden: boolean;
   onSelect: (user: Option<TUser>) => void;
 };
 
@@ -25,7 +27,7 @@ export class Users extends Component<TUsersProps, TUsersState> {
   };
 
   render() {
-    const { data, selectedUser } = this.props;
+    const { data, selectedUser, isSmallScreen, isMenuHidden } = this.props;
     const { search } = this.state;
 
     const selectedUserId = selectedUser.map(el => el.id).toNullable();
@@ -33,6 +35,10 @@ export class Users extends Component<TUsersProps, TUsersState> {
     const filtredData = data.filter(el =>
       el.name.toLocaleLowerCase().includes(search.toLocaleLowerCase())
     );
+
+    if (isSmallScreen && !isMenuHidden) {
+      return null;
+    }
 
     return (
       <div className={css.container}>

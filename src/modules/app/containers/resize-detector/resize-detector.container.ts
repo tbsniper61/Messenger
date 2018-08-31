@@ -2,7 +2,7 @@ import { Dispatch } from "redux";
 import {
   resizeWindowAC,
   TResizeWindow
-} from "../../../../redux/actions/resize-detector";
+} from "../../../../redux/actions/hamburger";
 import { connect } from "react-redux";
 import { ResizeDetector } from "../../components/resize-detector/resize-detector";
 

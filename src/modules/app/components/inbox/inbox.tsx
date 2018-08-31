@@ -17,15 +17,17 @@ import {
 export type TInboxProps = {
   selectedItem: TInboxMenuItems;
   counts: TCounts;
-  isHidden: boolean;
+  isMenuHidden: boolean;
+  isSmallScreen: boolean;
+  onHideTab: () => void;
   onSelect: (selectedItem: TInboxMenuItems) => void;
 };
 
 export class Inbox extends Component<TInboxProps> {
   render() {
-    const { selectedItem, counts, isHidden } = this.props;
+    const { selectedItem, counts, isMenuHidden } = this.props;
 
-    if (isHidden) {
+    if (isMenuHidden) {
       return null;
     }
 
@@ -76,5 +78,11 @@ export class Inbox extends Component<TInboxProps> {
     );
   }
 
-  handleItemSelect = (item: TInboxMenuItems) => () => this.props.onSelect(item);
+  handleItemSelect = (item: TInboxMenuItems) => () => {
+    const { isSmallScreen, onSelect, onHideTab } = this.props;
+
+    onSelect(item);
+
+    isSmallScreen && setTimeout(onHideTab, 200);
+  };
 }

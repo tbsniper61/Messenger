@@ -10,9 +10,9 @@
 
 @media screen and (max-width: 1512px) {
     .container {
+        min-width: 359px;
+        max-width: 359px;
         height: 100%;
-        left: 81px;
-        position: absolute;
     }
 }
 
