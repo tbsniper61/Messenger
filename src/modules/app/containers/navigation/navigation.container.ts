@@ -8,7 +8,8 @@ import { Navigation } from "../../components/navigation/navigation";
 
 const endomorphism = (state: TAppState) => state;
 const mapStateToProps = createSelector(endomorphism, state => ({
-  selectedIm: state.selectedMessenger
+  selectedIm: state.selectedMessenger,
+  isHamburgerHidden: state.isSmallScreen
 }));
 
 const mapDispatchToProps = (dispatch: Dispatch<TChangeIM>) => ({

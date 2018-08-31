@@ -48,9 +48,11 @@ export class RawMessages extends Component<TRawMessagesProps> {
               <div className={css.username}>{username}</div>
               <div className={css.isTyping}>is typing...</div>
             </div>
-            <Icon source={favoriteIcon} theme={favoriteCss} />
-            <Icon source={callIcon} theme={callCss} />
-            <Icon source={videoIcon} theme={videoCss} />
+            <div className={css.icons}>
+              <Icon source={favoriteIcon} theme={favoriteCss} />
+              <Icon source={callIcon} theme={callCss} />
+              <Icon source={videoIcon} theme={videoCss} />
+            </div>
           </div>
           <div className={css.content}>{messages.map(this.renderMessage)}</div>
           <div className={css.footer}>

@@ -18,10 +18,16 @@
     background-color: #EBEEF1;
 }
 
+.icons {
+    display: flex;
+    max-width: 243px;
+}
+
 .userInfo {
     width: 410px;
     align-self: center;
     display: flex;
+    margin-right: auto;
 }
 
 .username {

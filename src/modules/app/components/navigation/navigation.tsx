@@ -11,17 +11,20 @@ import { Icon } from "../../../ui-kit/components/icon/icon";
 
 export type TNavigationProps = {
   selectedIm: Messenger;
+  isHamburgerHidden: boolean;
   onSelect: (im: Messenger) => void;
 };
 
 export class Navigation extends Component<TNavigationProps> {
   render() {
-    const { selectedIm, onSelect } = this.props;
+    const { selectedIm, onSelect, isHamburgerHidden } = this.props;
 
     return (
       <div className={css.container}>
         <div className={css.topPlaceholder}>
-          <Icon theme={iconCss} source={hamburgerIcon} />
+          {!isHamburgerHidden && (
+            <Icon theme={iconCss} source={hamburgerIcon} />
+          )}
         </div>
         {MESSENGERS.map(type => (
           <MessengerCard
