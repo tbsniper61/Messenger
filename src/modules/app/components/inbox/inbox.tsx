@@ -25,55 +25,57 @@ export type TInboxProps = {
 
 export class Inbox extends Component<TInboxProps> {
   render() {
-    const { selectedItem, counts, isMenuHidden } = this.props;
+    const { selectedItem, counts, isSmallScreen, isMenuHidden } = this.props;
 
-    if (isMenuHidden) {
+    if (isSmallScreen && isMenuHidden) {
       return null;
     }
 
     return (
       <div className={css.container}>
-        <div className={css.header}>
-          <div className={css.title}>Inbox</div>
-          <Icon source={addIcon} theme={iconCss} />
-        </div>
+        <div className={css.flexContainer}>
+          <div className={css.header}>
+            <div className={css.title}>Inbox</div>
+            <Icon source={addIcon} theme={iconCss} />
+          </div>
 
-        {PRIMARY_MENU_ITEMS.map(el => {
-          const shouldRenderHr = el === PrimaryMenuItem.Teams;
+          {PRIMARY_MENU_ITEMS.map(el => {
+            const shouldRenderHr = el === PrimaryMenuItem.Teams;
 
-          const itemTheme = cn(css.menuItem, {
-            [css.menuItem__active as string]: el === selectedItem
-          });
+            const itemTheme = cn(css.menuItem, {
+              [css.menuItem__active as string]: el === selectedItem
+            });
 
-          return (
-            <Fragment key={el}>
-              {shouldRenderHr && <Hr />}
+            return (
+              <Fragment key={el}>
+                {shouldRenderHr && <Hr />}
 
-              <div className={itemTheme} onClick={this.handleItemSelect(el)}>
+                <div className={itemTheme} onClick={this.handleItemSelect(el)}>
+                  <div className={css.cathegoryTitle}>{el}</div>
+                  <div className={css.count}>{counts[el]}</div>
+                </div>
+              </Fragment>
+            );
+          })}
+
+          <Hr />
+
+          {SETTINGS_MENU_ITEMS.map(el => {
+            const itemTheme = cn(css.menuItem, {
+              [css.menuItem__active as string]: el === selectedItem
+            });
+
+            return (
+              <div
+                className={itemTheme}
+                onClick={this.handleItemSelect(el)}
+                key={el}
+              >
                 <div className={css.cathegoryTitle}>{el}</div>
-                <div className={css.count}>{counts[el]}</div>
               </div>
-            </Fragment>
-          );
-        })}
-
-        <Hr />
-
-        {SETTINGS_MENU_ITEMS.map(el => {
-          const itemTheme = cn(css.menuItem, {
-            [css.menuItem__active as string]: el === selectedItem
-          });
-
-          return (
-            <div
-              className={itemTheme}
-              onClick={this.handleItemSelect(el)}
-              key={el}
-            >
-              <div className={css.cathegoryTitle}>{el}</div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     );
   }

@@ -11,25 +11,19 @@ import { Icon } from "../../../ui-kit/components/icon/icon";
 
 export type TNavigationProps = {
   selectedIm: Messenger;
-  isHamburgerHidden: boolean;
+  isHamburgerDisabled: boolean;
   onSelect: (im: Messenger) => void;
   onMenuClick: () => void;
 };
 
 export class Navigation extends Component<TNavigationProps> {
   render() {
-    const { selectedIm, onSelect, isHamburgerHidden, onMenuClick } = this.props;
+    const { selectedIm, onSelect, onMenuClick } = this.props;
 
     return (
       <div className={css.container}>
         <div className={css.topPlaceholder}>
-          {!isHamburgerHidden && (
-            <Icon
-              theme={iconCss}
-              source={hamburgerIcon}
-              onClick={onMenuClick}
-            />
-          )}
+          <Icon theme={iconCss} source={hamburgerIcon} onClick={onMenuClick} />
         </div>
         {MESSENGERS.map(type => (
           <MessengerCard
@@ -44,4 +38,12 @@ export class Navigation extends Component<TNavigationProps> {
       </div>
     );
   }
+
+  handleMenuClick = () => {
+    const { onMenuClick, isHamburgerDisabled } = this.props;
+
+    if (!isHamburgerDisabled) {
+      onMenuClick;
+    }
+  };
 }
