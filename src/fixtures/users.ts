@@ -1,8 +1,8 @@
 import { TUser } from "../models/User";
 
 const mattIcon = "/src/assets/icons/matt-photo.svg";
-const claireIcon = "/src/assets/icons/claire-photo.png";
-const kristenIcon = "/src/assets/icons/kristen-photo.png";
+const genericAvatar = "/src/assets/icons/generic-avatar.svg";
+// const kristenIcon = "/src/assets/icons/kristen-photo.png";
 // const shaunIcon = "/src/assets/icons/shaun-photo.png";
 // const maseIcon = "/src/assets/icons/mase-photo.png";
 // const kayneIcon = "/src/assets/icons/kayne-photo.png";
@@ -28,7 +28,7 @@ export const USERS: TUser[] = [
   {
     id: "asd2",
     name: "Claire Sharwood",
-    avatar: claireIcon,
+    avatar: genericAvatar,
     isOnline: true,
     phone: "072 143 9920",
     birthday: new Date("01.01.1998"),
@@ -45,7 +45,7 @@ export const USERS: TUser[] = [
   {
     id: "asd3",
     name: "Kristen Mckellar",
-    avatar: kristenIcon,
+    avatar: genericAvatar,
     isOnline: true,
     phone: "072 143 9920",
     birthday: new Date("01.01.1998"),

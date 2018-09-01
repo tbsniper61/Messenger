@@ -18,12 +18,16 @@ export type TNavigationProps = {
 
 export class Navigation extends Component<TNavigationProps> {
   render() {
-    const { selectedIm, onSelect, onMenuClick } = this.props;
+    const { selectedIm, onSelect } = this.props;
 
     return (
       <div className={css.container}>
         <div className={css.topPlaceholder}>
-          <Icon theme={iconCss} source={hamburgerIcon} onClick={onMenuClick} />
+          <Icon
+            theme={iconCss}
+            source={hamburgerIcon}
+            onClick={this.handleMenuClick}
+          />
         </div>
         {MESSENGERS.map(type => (
           <MessengerCard
@@ -43,7 +47,7 @@ export class Navigation extends Component<TNavigationProps> {
     const { onMenuClick, isHamburgerDisabled } = this.props;
 
     if (!isHamburgerDisabled) {
-      onMenuClick;
+      onMenuClick();
     }
   };
 }
