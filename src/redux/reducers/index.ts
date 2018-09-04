@@ -5,7 +5,7 @@ import { changeImReducer } from "./im";
 import { changeUserReducer } from "./user";
 import { changeInboxMenuReducer } from "./inbox";
 import { changeMenuVisibilityReducer, resizeWindowReducer } from "./hamburger";
-const genericAvatar = "/src/assets/icons/generic-avatar.svg";
+import * as genericAvatar from "./../../assets/icons/generic-avatar.svg";
 
 export const reducerMapObj: ReducersMapObject<TAppState, TAction> = {
   selectedMessenger: changeImReducer,

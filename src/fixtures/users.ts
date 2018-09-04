@@ -1,11 +1,6 @@
 import { TUser } from "../models/User";
-
-const mattIcon = "/src/assets/icons/matt-photo.svg";
-const genericAvatar = "/src/assets/icons/generic-avatar.svg";
-// const kristenIcon = "/src/assets/icons/kristen-photo.png";
-// const shaunIcon = "/src/assets/icons/shaun-photo.png";
-// const maseIcon = "/src/assets/icons/mase-photo.png";
-// const kayneIcon = "/src/assets/icons/kayne-photo.png";
+import * as genericAvatar from "./../assets/icons/generic-avatar.svg";
+import * as mattIcon from "./../assets/icons/matt-photo.svg";
 
 export const USERS: TUser[] = [
   {

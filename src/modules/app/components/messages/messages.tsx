@@ -18,8 +18,8 @@ import { MakeTheme } from "../../../../utils/make-theme";
 import { ObjectOptional } from "../../../../utils/object-optional";
 import { Icon } from "../../../ui-kit/components/icon/icon";
 import { TMessage } from "../../../../models/Message";
-import { OtherMessage } from "../other-message/other-message";
-import { SelfMessage } from "../self-message/self-message";
+import { IncomeMessage } from "../income-message/income-message";
+import { OutcomeMessage } from "../outcome-message/outcome-message";
 import { TUser } from "../../../../models/User";
 import { Option } from "fp-ts/lib/Option";
 
@@ -77,7 +77,7 @@ export class RawMessages extends Component<TRawMessagesProps> {
 
     if (isCurrentUserMessage) {
       return (
-        <SelfMessage
+        <OutcomeMessage
           message={message}
           key={message.id}
           avatar={currentUser.avatar}
@@ -87,7 +87,7 @@ export class RawMessages extends Component<TRawMessagesProps> {
 
     const avatar = selectedUser.map(el => el.avatar).getOrElse("");
 
-    return <OtherMessage message={message} key={message.id} avatar={avatar} />;
+    return <IncomeMessage message={message} key={message.id} avatar={avatar} />;
   };
 }
 

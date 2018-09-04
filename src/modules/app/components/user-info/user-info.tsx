@@ -17,6 +17,7 @@ import { TUser } from "../../../../models/User";
 import { Icon } from "../../../ui-kit/components/icon/icon";
 import { Option } from "fp-ts/lib/Option";
 import { Messenger } from "../../../../models/Messenger";
+const notificationIcon = require("./../../../../assets/icons/notifications-icon.png");
 
 export type TUserInfoProps = {
   user: Option<TUser>;
@@ -37,10 +38,7 @@ export class UserInfo extends Component<TUserInfoProps> {
       <div className={css.container}>
         <div className={css.flexContainer}>
           <div className={css.header}>
-            <Icon
-              source={"./src/assets/icons/notifications-icon.png"}
-              theme={notifIconCss}
-            />
+            <Icon source={notificationIcon} theme={notifIconCss} />
             <div className={css.headerContent}>
               <div className={css.username}>{selectedUser.name}</div>
               <Icon source={dropDownIcon} theme={dropDownCss} />
