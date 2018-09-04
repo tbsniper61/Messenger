@@ -6,6 +6,7 @@ const attachIcon = require("./../../../../assets/icons/attach-icon.png");
 const emojiIcon = require("./../../../../assets/icons/emojis-icon.png");
 const callIcon = require("./../../../../assets/icons/call-icon.png");
 const videoIcon = require("./../../../../assets/icons/video-icon.png");
+import * as genericAvatar from "./../../../../assets/icons/generic-avatar.svg";
 import * as favoriteCss from "./theme/favorite.child.css";
 import * as sendCss from "./theme/send.child.css";
 import * as attachCss from "./theme/attach.child.css";
@@ -31,6 +32,12 @@ export type TRawMessagesProps = {
 };
 
 export class RawMessages extends Component<TRawMessagesProps> {
+  scrollContainer: HTMLDivElement | null;
+
+  componentDidUpdate() {
+    this.scrollToBottom();
+  }
+
   render() {
     const { theme, messages, selectedUser } = this.props;
 
@@ -54,7 +61,9 @@ export class RawMessages extends Component<TRawMessagesProps> {
               <Icon source={videoIcon} theme={videoCss} />
             </div>
           </div>
-          <div className={css.content}>{messages.map(this.renderMessage)}</div>
+          <div className={css.content} ref={el => (this.scrollContainer = el)}>
+            {messages.map(this.renderMessage)}
+          </div>
           <div className={css.footer}>
             <Icon source={attachIcon} theme={attachCss} />
             <input
@@ -85,9 +94,18 @@ export class RawMessages extends Component<TRawMessagesProps> {
       );
     }
 
-    const avatar = selectedUser.map(el => el.avatar).getOrElse("");
+    const avatar = selectedUser.map(el => el.avatar).getOrElse(genericAvatar);
 
     return <IncomeMessage message={message} key={message.id} avatar={avatar} />;
+  };
+
+  scrollToBottom = () => {
+    if (this.scrollContainer) {
+      const scrollHeight = this.scrollContainer.scrollHeight;
+      const height = this.scrollContainer.clientHeight;
+      const maxScrollTop = scrollHeight - height;
+      this.scrollContainer.scrollTop = maxScrollTop > 0 ? maxScrollTop : 0;
+    }
   };
 }
 
