@@ -9,6 +9,7 @@
     "start1": "webpack-dev-server --mode development",
     "build": "webpack",
     "deploy": "gh-pages -d dist",
+    "publish": "npm run build && npm run deploy",
     "update": "rm -rf node_modules && npm i"
   },
   "author": "",
