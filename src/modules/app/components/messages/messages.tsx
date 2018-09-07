@@ -13,10 +13,7 @@ import * as attachCss from "./theme/attach.child.css";
 import * as emojiCss from "./theme/emoji.child.css";
 import * as callCss from "./theme/call.child.css";
 import * as videoCss from "./theme/video.child.css";
-import { themr } from "react-css-themr";
-import { Component, ComponentClass } from "react";
-import { MakeTheme } from "../../../../utils/make-theme";
-import { ObjectOptional } from "../../../../utils/object-optional";
+import { Component } from "react";
 import { Icon } from "../../../ui-kit/components/icon/icon";
 import { TMessage } from "../../../../models/Message";
 import { IncomeMessage } from "../income-message/income-message";
@@ -24,14 +21,13 @@ import { OutcomeMessage } from "../outcome-message/outcome-message";
 import { TUser } from "../../../../models/User";
 import { Option } from "fp-ts/lib/Option";
 
-export type TRawMessagesProps = {
+export type TMessagesProps = {
   messages: TMessage[];
   currentUser: TUser;
   selectedUser: Option<TUser>;
-  theme: MakeTheme<"container">;
 };
 
-export class RawMessages extends Component<TRawMessagesProps> {
+export class Messages extends Component<TMessagesProps> {
   scrollContainer: HTMLDivElement | null;
 
   componentDidUpdate() {
@@ -39,7 +35,7 @@ export class RawMessages extends Component<TRawMessagesProps> {
   }
 
   render() {
-    const { theme, messages, selectedUser } = this.props;
+    const { messages, selectedUser } = this.props;
 
     const username = selectedUser.map(el => el.name).getOrElse("");
 
@@ -48,7 +44,7 @@ export class RawMessages extends Component<TRawMessagesProps> {
     }
 
     return (
-      <div className={theme.container}>
+      <div className={css.container}>
         <div className={css.flexContainer}>
           <div className={css.header}>
             <div className={css.userInfo}>
@@ -108,14 +104,3 @@ export class RawMessages extends Component<TRawMessagesProps> {
     }
   };
 }
-
-const defaultTheme = {
-  ...css
-};
-
-export type TMessagesProps = ObjectOptional<TRawMessagesProps, "theme">;
-
-export const Messages: ComponentClass<TMessagesProps> = themr(
-  "Messages",
-  defaultTheme
-)(RawMessages);
