@@ -6,10 +6,8 @@ import { store } from "../../../../redux/state";
 import { NavigationContainer } from "../../containers/navigation/navigation.container";
 import { InboxContainer } from "../../containers/inbox/inbox.container";
 import { UsersContainer } from "../../containers/users/users.container";
-import { UserInfoContainer } from "../../containers/user-info/user-info.container";
-import { MessagesContainer } from "../../containers/messages/messages.container";
 import { ResizeDetectorContainer } from "../../containers/resize-detector/resize-detector.container";
-import { CapContainer } from "../../containers/cap/cap.container";
+import { MainContentContainer } from "../../containers/main-content/main-content";
 
 export class App extends Component {
   render() {
@@ -20,9 +18,7 @@ export class App extends Component {
           <NavigationContainer />
           <InboxContainer />
           <UsersContainer />
-          <CapContainer />
-          <MessagesContainer />
-          <UserInfoContainer />
+          <MainContentContainer />
         </div>
       </Provider>
     );

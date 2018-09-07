@@ -7,8 +7,7 @@ import { MESSAGES } from "../../../../fixtures/messages";
 const endomorphism = (state: TAppState) => state;
 const mapStateToProps = createSelector(endomorphism, state => ({
   messages: MESSAGES,
-  currentUser: state.currentUser,
-  selectedUser: state.selectedUser
+  currentUser: state.currentUser
 }));
 
 export const MessagesContainer = connect(mapStateToProps)(Messages);

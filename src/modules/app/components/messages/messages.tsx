@@ -19,12 +19,11 @@ import { TMessage } from "../../../../models/Message";
 import { IncomeMessage } from "../income-message/income-message";
 import { OutcomeMessage } from "../outcome-message/outcome-message";
 import { TUser } from "../../../../models/User";
-import { Option } from "fp-ts/lib/Option";
 
 export type TMessagesProps = {
   messages: TMessage[];
   currentUser: TUser;
-  selectedUser: Option<TUser>;
+  selectedUser: TUser;
 };
 
 export class Messages extends Component<TMessagesProps> {
@@ -37,11 +36,7 @@ export class Messages extends Component<TMessagesProps> {
   render() {
     const { messages, selectedUser } = this.props;
 
-    const username = selectedUser.map(el => el.name).getOrElse("");
-
-    if (selectedUser.isNone()) {
-      return null;
-    }
+    const username = selectedUser.name;
 
     return (
       <div className={css.container}>
@@ -90,7 +85,7 @@ export class Messages extends Component<TMessagesProps> {
       );
     }
 
-    const avatar = selectedUser.map(el => el.avatar).getOrElse(genericAvatar);
+    const avatar = selectedUser.avatar || genericAvatar;
 
     return <IncomeMessage message={message} key={message.id} avatar={avatar} />;
   };

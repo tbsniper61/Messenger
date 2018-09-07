@@ -1,13 +1,13 @@
 import * as React from "react";
-import * as css from "./theme/cap.css";
+import * as css from "./theme/help.css";
 import { Component } from "react";
 
-export class Cap extends Component {
+export class Help extends Component {
   render() {
     return (
       <div className={css.container}>
         <div className={css.content}>
-          <div className={css.qwe}>Select a user to view messages</div>
+          <div className={css.qwe}>Help tab is under construction</div>
         </div>
       </div>
     );
