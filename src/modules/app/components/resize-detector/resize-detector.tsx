@@ -8,11 +8,11 @@ export type TResizeDetectorProps = {
 export class ResizeDetector extends Component<TResizeDetectorProps> {
   componentDidMount() {
     this.updateWindowWidth();
-    window.addEventListener("resize", this.updateWindowWidth);
+    window.addEventListener("resize", this.updateWindowWidth.bind(this));
   }
 
   componentWillUnmount() {
-    window.removeEventListener("resize", this.updateWindowWidth);
+    window.removeEventListener("resize", this.updateWindowWidth.bind(this));
   }
 
   updateWindowWidth() {

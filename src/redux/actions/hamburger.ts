@@ -21,16 +21,10 @@ export const resizeWindowAC: TResizeWindowAC = isSmallScreen => ({
 
 export type TChangeMenuVisibility = {
   type: typeof CHANGE_MENU_VISIBILITY;
-  // payload: {
-  //   isMenuHidden: boolean;
-  // };
 };
 
 export type TChangeMenuVisibilityAC = () => TChangeMenuVisibility;
 
 export const changeMenuVisibility: TChangeMenuVisibilityAC = () => ({
   type: CHANGE_MENU_VISIBILITY
-  // payload: {
-  //   isMenuHidden
-  // }
 });
