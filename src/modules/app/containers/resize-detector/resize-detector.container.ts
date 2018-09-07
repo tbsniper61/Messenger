@@ -14,4 +14,4 @@ const mapDispatchToProps = (dispatch: Dispatch<TResizeWindow>) => ({
 export const ResizeDetectorContainer = connect(
   null,
   mapDispatchToProps
-)(ResizeDetector as any);
+)(ResizeDetector);

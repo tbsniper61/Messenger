@@ -10,4 +10,4 @@ const mapStateToProps = createSelector(endomorphism, state => ({
   selectedMessenger: state.selectedMessenger
 }));
 
-export const UserInfoContainer = connect(mapStateToProps)(UserInfo as any);
+export const UserInfoContainer = connect(mapStateToProps)(UserInfo);

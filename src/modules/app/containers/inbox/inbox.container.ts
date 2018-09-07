@@ -27,4 +27,4 @@ const mapDispatchToProps = (dispatch: Dispatch<TAction>) => ({
 export const InboxContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(Inbox as any);
+)(Inbox);

@@ -11,7 +11,7 @@ import { TAction } from "../../../../redux/actions";
 const endomorphism = (state: TAppState) => state;
 const mapStateToProps = createSelector(endomorphism, state => ({
   selectedIm: state.selectedMessenger,
-  isHamburgerHidden: !state.isSmallScreen
+  isHamburgerDisabled: !state.isSmallScreen
 }));
 
 const mapDispatchToProps = (dispatch: Dispatch<TAction>) => ({
@@ -22,4 +22,4 @@ const mapDispatchToProps = (dispatch: Dispatch<TAction>) => ({
 export const NavigationContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(Navigation as any);
+)(Navigation);

@@ -9,4 +9,4 @@ const mapStateToProps = createSelector(endomorphism, state => ({
   currentUser: state.selectedUser
 }));
 
-export const CapContainer = connect(mapStateToProps)(Cap as any);
+export const CapContainer = connect(mapStateToProps)(Cap);

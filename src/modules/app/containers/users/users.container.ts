@@ -24,4 +24,4 @@ const mapDispatchToProps = (dispatch: Dispatch<TChangeUser>) => ({
 export const UsersContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(Users as any);
+)(Users);
