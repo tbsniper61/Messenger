@@ -8,6 +8,7 @@ import { TUser } from "../../../../models/User";
 import { SettingsMenuItem, TInboxMenuItems } from "../../../../models/Inbox";
 import { Help } from "../help/help";
 import { Cap } from "../cap/cap";
+import { UsersContainer } from "../../containers/users/users.container";
 
 export type TMainContentProps = {
   selectedUser: Option<TUser>;
@@ -29,6 +30,7 @@ export class MainContent extends Component<TMainContentProps> {
 
         {shouldRenderHelp && <Help />}
 
+        {isSettingsDisabled && <UsersContainer />}
         {isSettingsDisabled &&
           selectedUser.map(this.renderMessages).getOrElse(<Cap />)}
       </Fragment>
